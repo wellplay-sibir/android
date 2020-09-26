@@ -1,0 +1,126 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.gazprombank"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:5:22-64
+12
+13    <uses-feature
+13-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:7:5-9:35
+14        android:name="android.hardware.camera"
+14-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:8:9-47
+15        android:required="true" />
+15-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:9:9-32
+16
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:11:5-80
+17-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:11:22-77
+18    <uses-permission
+18-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:12:5-14:38
+19        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+19-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:13:9-65
+20        android:maxSdkVersion="18" />
+20-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:14:9-35
+21
+22    <application
+22-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:16:5-65:19
+23        android:allowBackup="true"
+23-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:17:9-35
+24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+24-->[androidx.core:core:1.3.1] C:\Users\ACER\.gradle\caches\transforms-2\files-2.1\ae3468b444d41a56f261ecbb8448fe17\core-1.3.1\AndroidManifest.xml:24:18-86
+25        android:icon="@mipmap/ic_launcher"
+25-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:18:9-43
+26        android:label="@string/app_name"
+26-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:19:9-41
+27        android:roundIcon="@mipmap/ic_launcher_round"
+27-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:20:9-54
+28        android:supportsRtl="true"
+28-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:21:9-35
+29        android:theme="@style/AppTheme" >
+29-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:22:9-40
+30        <activity android:name="com.example.gazprombank.DocumentComment" >
+30-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:23:9-27:20
+30-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:23:19-50
+31            <meta-data
+31-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:24:13-26:50
+32                android:name="android.support.PARENT_ACTIVITY"
+32-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:25:17-63
+33                android:value=".DocumentPhote" />
+33-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:26:17-47
+34        </activity>
+35        <!-- <provider -->
+36        <!-- android:name="androidx.core.content.FileProvider" -->
+37        <!-- android:authorities="com.example.android.fileprovider" -->
+38        <!-- android:exported="false" -->
+39        <!-- android:grantUriPermissions="true"> -->
+40        <!-- <meta-data -->
+41        <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
+42        <!-- android:resource="@xml/file_paths"></meta-data> -->
+43        <!-- </provider> -->
+44        <!-- ffff -->
+45        <activity android:name="com.example.gazprombank.DocumentPhote" >
+45-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:38:9-42:20
+45-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:38:19-48
+46            <meta-data
+46-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:24:13-26:50
+47                android:name="android.support.PARENT_ACTIVITY"
+47-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:25:17-63
+48                android:value=".DocumentType" />
+48-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:26:17-47
+49        </activity> <!-- ffff -->
+50        <activity android:name="com.example.gazprombank.DocumentType" >
+50-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:43:9-47:20
+50-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:43:19-47
+51            <meta-data
+51-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:24:13-26:50
+52                android:name="android.support.PARENT_ACTIVITY"
+52-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:25:17-63
+53                android:value=".PersonalArea" />
+53-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:26:17-47
+54        </activity> <!-- ffff -->
+55        <activity android:name="com.example.gazprombank.PersonalArea" >
+55-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:48:9-52:20
+55-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:48:19-47
+56            <meta-data
+56-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:24:13-26:50
+57                android:name="android.support.PARENT_ACTIVITY"
+57-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:25:17-63
+58                android:value=".LoginCode" />
+58-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:26:17-47
+59        </activity> <!-- ffff -->
+60        <activity android:name="com.example.gazprombank.LoginCode" >
+60-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:53:9-57:20
+60-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:53:19-44
+61            <meta-data
+61-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:24:13-26:50
+62                android:name="android.support.PARENT_ACTIVITY"
+62-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:25:17-63
+63                android:value=".LoginActivity" />
+63-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:26:17-47
+64        </activity> <!-- ffff -->
+65        <activity android:name="com.example.gazprombank.LoginActivity" >
+65-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:58:9-64:20
+65-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:58:19-48
+66            <intent-filter>
+66-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:59:13-63:29
+67                <action android:name="android.intent.action.MAIN" />
+67-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:60:17-69
+67-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:60:25-66
+68
+69                <category android:name="android.intent.category.LAUNCHER" />
+69-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:62:17-77
+69-->C:\Users\ACER\AndroidStudioProjects\gazprombank\app\src\main\AndroidManifest.xml:62:27-74
+70            </intent-filter>
+71        </activity>
+72    </application>
+73
+74</manifest>

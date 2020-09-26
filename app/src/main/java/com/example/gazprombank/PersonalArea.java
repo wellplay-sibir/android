@@ -2,8 +2,10 @@ package com.example.gazprombank;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,65 +24,61 @@ public class PersonalArea extends AppCompatActivity {
 
     final String SAVED_TEXT = "saved_text";
 
+    public String phone, token;
+    public String tokenUser;
+    public DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_area);
 
-        // Get the Intent that started this activity and extract the string
-        Intent intent = getIntent();
-        final String phoneUser = intent.getStringExtra(LoginCode.EXTRA_MESSAGE2);
+        Bundle arguments = getIntent().getExtras();
+//        final TextView textView = findViewById(R.id.textView3);
+//        final TextView test = findViewById(R.id.textView7);
 
-        saveText(phoneUser);
+        if(arguments!=null) {
+            phone = arguments.get("phone").toString();
+            token = arguments.get("token").toString();
+            tokenUser = token.substring(14, 356);
+//            textView.setText(tokenUser);
+//            test.setText(token);
+        }
 
-        // Capture the layout's TextView and set the string as its text
+        dataStorage(phone, tokenUser);
 
-//        textView.setText(phoneUser);
         final Button loadingDocuments = findViewById(R.id.loadingDocuments);
+
 
 //        loadText();
 
         loadingDocuments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendMessage3(phoneUser);
+                sendMessage3();
             }
         });
 
     }
+    // Сохранение номера и токен
+    void dataStorage(String phone, String tokenUser){
+        dbHelper = new DBHelper(this);
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(DBHelper.KEY_NAME, phone);
+        contentValues.put(DBHelper.KEY_MAIL, tokenUser);
+
+        database.insert(DBHelper.TABLE_CONTACTS, null, contentValues);
+    }
 
     // Сохранение номера телефона клиента
-    void saveText(String phoneUser) {
-        sPref = getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor ed = sPref.edit();
-        ed.putString(SAVED_TEXT, phoneUser);
-        ed.commit();
-        Toast.makeText(this, "Text saved", Toast.LENGTH_SHORT).show();
-    }
 
-    // Извлечение номера телефона клиента
-    void loadText() {
-        sPref = getPreferences(MODE_PRIVATE);
-        String savedText = sPref.getString(SAVED_TEXT, "");
-        final TextView textView = findViewById(R.id.textView3);
-        textView.setText(savedText);
-        Toast.makeText(this, "Text loaded", Toast.LENGTH_SHORT).show();
-    }
 
     // Переход на новую активность
-    public void sendMessage2() {
-        Intent intent1 = new Intent(this, DocumentType.class);
-//        EditText phoneNumberEditText = (EditText) findViewById(R.id.codeEditText);
-//        String phoneUser = phoneNumberEditText.getText().toString();
-//        intent1.putExtra(EXTRA_MESSAGE2, phoneUser);
-        startActivity(intent1);
-    }
-
-    // Переход на новую активность
-    public void sendMessage3(String phone){
+    public void sendMessage3(){
         Intent intent = new Intent(this, DocumentType.class);
-        intent.putExtra("phone", phone);
+//        intent.putExtra("phone", phone);
 //        intent.putExtra("company", company);
 //        intent.putExtra("price", price);
         startActivity(intent);

@@ -46,12 +46,15 @@ public class LoginCode extends AppCompatActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String phoneNumber = "{\r\n    \"number_phone\": \"" + phoneUser +"\",\r\n    \"password\": \"" + codeEditText.getText().toString() + "\"\r\n}";
                 final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://fenomen96.000webhostapp.com/index.php", new Response.Listener<String>() {
                     @Override
                     public void onResponse(String serverResponse) {
-                        if (serverResponse == "True"){
-                            sendMessage2(phoneUser);
+
+                        if (serverResponse.contains("UserToken")){
+                            final String token = serverResponse;
+                            sendMessage2(phoneUser, token);
                         }
                         else{
                             // return: значение ошибки
@@ -60,7 +63,7 @@ public class LoginCode extends AppCompatActivity {
                                     Toast.LENGTH_SHORT); // сообщение будет висеть минимум времени.
                             toast.setGravity(Gravity.CENTER, 0, 0); // Тут координаты – мессендж возникнет по центру.
                             toast.show(); // строка вызова.
-                            sendMessage2(phoneUser);
+//                            sendMessage2(phoneUser);
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -72,7 +75,7 @@ public class LoginCode extends AppCompatActivity {
                     @Override
                     public Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> map = new HashMap<>();
-                        final String phone = map.put("phone", codeEditText.getText().toString());
+                        final String phone = map.put("proverka", phoneNumber);
                         return map;
                     }
                 };
@@ -80,12 +83,15 @@ public class LoginCode extends AppCompatActivity {
             }
         });
     }
+
     // Переход на новую активность
-    public void sendMessage2(String phoneUser) {
-        Intent intent1 = new Intent(this, PersonalArea.class);
-//        EditText phoneNumberEditText = (EditText) findViewById(R.id.codeEditText);
-//        String phoneUser = phoneNumberEditText.getText().toString();
-        intent1.putExtra(EXTRA_MESSAGE2, phoneUser);
-        startActivity(intent1);
+    public void sendMessage2(String phone, String token){
+        Intent intent = new Intent(this, PersonalArea.class);
+        intent.putExtra("phone", phone);
+        intent.putExtra("token", token);
+//        intent.putExtra("price", price);
+        startActivity(intent);
+        finish();
     }
+
 }
